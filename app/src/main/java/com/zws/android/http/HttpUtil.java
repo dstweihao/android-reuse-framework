@@ -15,7 +15,6 @@ import java.util.Map;
 
 public class HttpUtil {
 
-
     /**
      * 向指定URL发送GET方法的请求
      *
@@ -123,18 +122,5 @@ public class HttpUtil {
         }
         return result;
     }
-//
-//    public static void main(String[] args) {
-//        JSONObject js = new JSONObject();
-//        js.put("expire_seconds", 604800);
-//        js.put("action_name", "QR_SCENE");
-//        JSONObject j1 = new JSONObject();
-//        j1.put("scene_id", 111111);
-//        JSONObject j2 = new JSONObject();
-//        j2.put("scene", j1);
-//        js.put("action_info", j2);
-//        String s = HttpUtil.sendPost("https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=uG17gXKUrhrAgw7wAfiUQolnlGylW_5sc8BqKNtNTmmSEjbsNpgEz-6vq6G_U-EEUyU-1_QJ1lAWcLyx9PvvGWRX9F3iq4CiFa0_nMcxseeJ1vqpjxjCK-c78kuwhrTxFEUaAJAIHX", js.toString());
-//        System.out.println(s);
-//    }
 }
 

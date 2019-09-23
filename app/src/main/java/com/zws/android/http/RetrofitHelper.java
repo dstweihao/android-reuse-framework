@@ -1,13 +1,11 @@
 package com.zws.android.http;
-
 import android.content.Context;
-
 import com.google.gson.GsonBuilder;
-
+import com.zws.android.constant.home.HomeAPI;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-
 
 /**
  * 用于Retrofit的初始化
@@ -42,15 +40,13 @@ public class RetrofitHelper {
     }
 
     private void resetApp() {
-
-//        mRetrofit = new Retrofit.Builder()
-//                .baseUrl(HomeAPI.ConstellationBaseUrl)
-//                .client(client)
-//                .addConverterFactory(factory)
-//                .addCallAdapterFactory(RxJavaCallAdapterFactory.create()) //支持Rx
-//                .build();
+        mRetrofit = new Retrofit.Builder()
+                .baseUrl(HomeAPI.ConstellationBaseUrl)
+                .client(client)
+                .addConverterFactory(factory)
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create()) //支持Rx
+                .build();
     }
-
     public RetrofitService getServer() {
         return mRetrofit.create(RetrofitService.class);
     }
