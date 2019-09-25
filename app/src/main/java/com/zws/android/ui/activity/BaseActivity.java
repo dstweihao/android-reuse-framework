@@ -13,7 +13,7 @@ import butterknife.ButterKnife;
  * @更新者 $Author$
  * @更新时间 $Date$
  * @更新描述 ${TODO}
- * 
+ *
  */
 
 public abstract class BaseActivity extends AppCompatActivity {
@@ -38,6 +38,16 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     //初始化数据
     protected abstract void initDate();
+    /**
+     *     //封装activity跳转
+     *     public void startActivity(Class clazz, String data, boolean isFinish) {
+     *         Intent intent = new Intent(this, clazz);
+     *         intent.putExtra("param", data);
+     *         startActivity(intent);
+     *         if (isFinish) {
+     *             finish();
+     *         }
+     *     }**/
 
     //封装activity跳转
     public void startActivity(Class clazz, boolean isFinish) {
