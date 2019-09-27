@@ -23,7 +23,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
-
         //将这行代码放在BaseActivity，放在继承的activity会报错
         ButterKnife.bind(this);
         initView();
@@ -38,16 +37,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     //初始化数据
     protected abstract void initDate();
-    /**
-     *     //封装activity跳转
-     *     public void startActivity(Class clazz, String data, boolean isFinish) {
-     *         Intent intent = new Intent(this, clazz);
-     *         intent.putExtra("param", data);
-     *         startActivity(intent);
-     *         if (isFinish) {
-     *             finish();
-     *         }
-     *     }**/
+
 
     //封装activity跳转
     public void startActivity(Class clazz, boolean isFinish) {
@@ -55,5 +45,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (isFinish) {
             finish();
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }
