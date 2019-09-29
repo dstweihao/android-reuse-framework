@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.activity.MainActivity">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpaper"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
+        android:layout_height="0dp"
+        android:layout_weight="9" />
     <!--    app:labelVisibilityMode="labeled" 去除动画效果-->
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:labelVisibilityMode="labeled"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:itemIconTint="@drawable/main_bottom"
         app:itemTextColor="@drawable/main_bottom"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:labelVisibilityMode="labeled"
         app:menu="@menu/menu_bottom_navigation_view" />
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

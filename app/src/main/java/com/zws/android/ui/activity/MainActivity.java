@@ -45,35 +45,33 @@ public class MainActivity extends BaseActivity {
         fragments.add(new DataFragment());
         fragments.add(new UserFragment());
         FragmentBottonNavAdapter fragmentBottonNavAdapter = new FragmentBottonNavAdapter(getSupportFragmentManager(), fragments);
-
         viewPager.setAdapter(fragmentBottonNavAdapter);
-        bottomNavigationView.setItemIconTintList(null);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.item_bottom_1:
                         viewPager.setCurrentItem(0);
-                        break;
+                        return true;
                     case R.id.item_bottom_2:
                         viewPager.setCurrentItem(1);
-                        break;
+                        return true;
+
                     case R.id.item_bottom_3:
                         viewPager.setCurrentItem(2);
-                        break;
+                        return true;
                     case R.id.item_bottom_4:
                         viewPager.setCurrentItem(3);
-                        break;
+                        return true;
                     default:
                         break;
+
                 }
                 return false;
             }
         });
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-
             private MenuItem menuItem;
-
             @Override
             public void onPageScrolled(int i, float v, int i1) {
 
@@ -81,7 +79,7 @@ public class MainActivity extends BaseActivity {
 
             @Override
             public void onPageSelected(int position) {
-                if(menuItem !=null){
+                if (menuItem != null) {
                     menuItem.setCheckable(false);
                 } else {
                     menuItem = bottomNavigationView.getMenu().getItem(position);

@@ -9,14 +9,29 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public abstract class BaseFragment extends Fragment {
-    private int mFragmentLayout;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
+public abstract class BaseFragment extends Fragment {
+    private Unbinder bind;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(getmFragmentLayout(), container, false);
+        View view = initView(inflater, container, savedInstanceState);
+        bind = ButterKnife.bind(this, view);
+        initData();
         return view;
     }
-    public abstract int getmFragmentLayout();
+
+    protected abstract View initView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);
+
+    protected abstract void initData();
+
+
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        bind.unbind();
+    }
 }

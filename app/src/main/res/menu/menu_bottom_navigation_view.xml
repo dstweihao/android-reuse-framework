@@ -3,23 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/item_bottom_1"
-        android:enabled="true"
-        android:icon="@drawable/ic_launcher_background"
+        android:icon="@drawable/buttom_nav_home_selector"
         android:title="首页" />
     <item
         android:id="@+id/item_bottom_2"
-        android:enabled="true"
-        android:icon="@drawable/ic_launcher_background"
+        android:icon="@drawable/buttom_nav_device_selector"
         android:title="设备" />
     <item
         android:id="@+id/item_bottom_3"
-        android:enabled="true"
-        android:icon="@drawable/ic_launcher_background"
+        android:icon="@drawable/buttom_nav_data_selector"
         android:title="数据"/>
     <item
         android:id="@+id/item_bottom_4"
-        android:enabled="true"
-        android:icon="@drawable/ic_launcher_background"
+        android:icon="@drawable/buttom_nav_user_selector"
         android:title="我" />
-
 </menu>
