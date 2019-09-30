@@ -1,4 +1,5 @@
 package com.zws.android.bean.home;
 
-class Te {
+public class HomeBean {
+
 }

@@ -1,8 +1,4 @@
 package com.zws.android.http;
-import com.zws.android.bean.home.ConstellationBean;
-import com.zws.android.bean.home.JWeChatBean;
-import com.zws.android.bean.home.TopBean;
-import com.zws.android.bean.home.WeChatBean;
 
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -30,6 +26,11 @@ public interface RetrofitService {
                                              @Query("ps") int ps,
                                              @Query("key") String key);
 
+    class TopBean {
+    }
+
+    class WeChatBean {
+    }
 }
 
 
