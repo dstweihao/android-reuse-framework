@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/login_bg"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.LoginActivity">
+
+
+    <!--<com.google.android.material.textfield.TextInputEditText-->
+    <!--android:id="@+id/ie_username"-->
+    <!--android:layout_width="280dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="250dp"-->
+    <!--android:hint="请输入用户名"-->
+    <!--app:layout_constraintLeft_toLeftOf="parent"-->
+    <!--app:layout_constraintRight_toRightOf="parent"-->
+    <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:textColorHint="@color/white"
+        app:counterEnabled="false"
+        app:counterMaxLength="16"
+        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/et_username"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:hint="请输入用户名"
+            android:textColor="@color/white"
+            android:textCursorDrawable="@drawable/edit_cursor_color" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/white"
+        app:counterEnabled="false"
+        app:counterMaxLength="16"
+        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/til_username">
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:hint="请输入密码"
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:textCursorDrawable="@drawable/edit_cursor_color" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/bt_login"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_circle_shape_login"
+        android:text="登录"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/til_password" />
+
+    <Button
+        android:id="@+id/bt_register"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_circle_shape_register"
+        android:text="注册"
+        android:textColor="@color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bt_login" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

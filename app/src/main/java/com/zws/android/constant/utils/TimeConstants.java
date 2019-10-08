@@ -4,11 +4,10 @@ package com.zws.android.constant.utils;
  * Created by weihao on 2017/12/25.
  */
 
-
-import android.support.annotation.IntDef;
-
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+
+import androidx.annotation.IntDef;
 
 /**
  * <pre>

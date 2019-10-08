@@ -1,11 +1,7 @@
 package com.zws.android.ui.activity;
-
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.view.MenuItem;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.zws.android.R;
 import com.zws.android.adapter.FragmentBottonNavAdapter;
 import com.zws.android.ui.fragment.DataFragment;
@@ -16,6 +12,9 @@ import com.zws.android.ui.fragment.UserFragment;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 import butterknife.BindView;
 
 

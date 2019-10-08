@@ -1,9 +1,6 @@
 package com.zws.android.ui.fragment;
 
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,27 +8,28 @@ import android.view.ViewGroup;
 
 import com.google.gson.Gson;
 import com.zws.android.R;
-import com.zws.android.adapter.home.HomeAdapter;
-import com.zws.android.bean.ExampleBaseBean;
-import com.zws.android.bean.home.HomeBean;
-import com.zws.android.bean.home.NavBean;
-import com.zws.android.bean.home.NavBeanItem;
+import com.zws.android.bean.home.DevStatus;
+import com.zws.android.bean.home.Nav;
+import com.zws.android.bean.home.NavList;
+import com.zws.android.bean.home.TitleBar;
+import com.zws.android.view.ViewBinder.DevStatusViewBinder;
+import com.zws.android.view.ViewBinder.NavListViewBinder;
+import com.zws.android.view.ViewBinder.TitleBarViewBinder;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
-import retrofit2.http.HEAD;
+import me.drakeet.multitype.Items;
+import me.drakeet.multitype.MultiTypeAdapter;
 
 public class HomeFragment extends BaseFragment {
 
-    private static final int TYPE_HEAD = 1001;
     @BindView(R.id.recyclerview)
     public RecyclerView recyclerView;
 
-
-    private List<HomeBean> homeBeans = new ArrayList<>();
-    private List<NavBeanItem> navBeans = new ArrayList<>();
 
     @Override
     protected View initView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -41,56 +39,34 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        initNavBean();
-        NavBean navBean = new NavBean(TYPE_HEAD, navBeans);
-        homeBeans.add(navBean);
-        GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 4);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false);
+        MultiTypeAdapter adapter = new MultiTypeAdapter();
+        Items items = new Items();
         recyclerView.setLayoutManager(layoutManager);
-        HomeAdapter homeAdapter = new HomeAdapter(homeBeans);
-        recyclerView.setAdapter(homeAdapter);
-        Log.d("sssss---", new Gson().toJson(homeBeans));
-    }
+        recyclerView.setAdapter(adapter);
 
-    private void initDevice() {
-        List<Number> list = new ArrayList<>();
+        adapter.register(NavList.class, new NavListViewBinder());
+        adapter.register(TitleBar.class, new TitleBarViewBinder());
+        adapter.register(DevStatus.class, new DevStatusViewBinder());
+
+        List<Nav> navList = new ArrayList<>();
+        navList.add(new Nav(R.mipmap.ic_launcher_round, "55", "项目"));
+        navList.add(new Nav(R.mipmap.ic_launcher_round, "65", "设备类型"));
+        navList.add(new Nav(R.mipmap.ic_launcher_round, "895", "设备"));
+        navList.add(new Nav(R.mipmap.ic_launcher_round, "43", "触发器"));
+
+        items.add(new NavList(navList));
+        items.add(new TitleBar("设备统计"));
         for (int i = 0; i < 20; i++) {
-//           DeviceStatistocsBean deviceStatistocsBean= new DeviceStatistocsBean("CANDTU-900" + i, "101", "22", "323", "52");
-//            deviceStatistocsBean.setViewType(ExampleAdapter.FOOT);//正常列表
-//            baseBeans.add(deviceStatistocsBean);
-
-            list.add(i);
-
+            items.add(new DevStatus("CANDTU-900" + i, "101", "22", "323", "52"));
         }
 
-        Log.d("xxxxx----", new Gson().toJson(list));
-    }
-
-    private void initNavBean() {
-        addToList(navBeans, R.mipmap.ic_launcher_round, "55", "项目");
-        addToList(navBeans, R.mipmap.ic_launcher_round, "65", "设备类型");
-        addToList(navBeans, R.mipmap.ic_launcher_round, "895", "设备类型");
-        addToList(navBeans, R.mipmap.ic_launcher_round, "43", "触发器");
+        adapter.setItems(items);
+        adapter.notifyDataSetChanged();
 
     }
 
-    private void addToList(List array, int image, String num, String text) {
-        array.add(new NavBeanItem(image, num, text));
-
-
-    }
-//
-//
-//    private void initFruits() {
-//
-////        addToList(mFruits, R.mipmap.ic_launcher_round, "项目");
-////        addToList(mFruits, R.mipmap.ic_launcher_round, "设备类型");
-////        addToList(mFruits, R.mipmap.ic_launcher_round, "设备");
-////        addToList(mFruits, R.mipmap.ic_launcher_round, "触发器");
-//
-//        for (int i = 0; i < 20; i++) {
-//            deviceStatistocsBean.add(new DeviceStatistocsBean("CANDTU-900" + i, "101", "22", "323", "52"));
-//        }
-//    }
 
 
 }
