@@ -24,4 +24,13 @@
         <item name="android:textColor">@color/red</item>
     </style>
 
+     
+
+    <style name="LoginEditText" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@color/LoginEditText</item>
+        <item name="colorControlActivated">@color/LoginEditText</item>
+         
+    </style>
+
+
 </resources>

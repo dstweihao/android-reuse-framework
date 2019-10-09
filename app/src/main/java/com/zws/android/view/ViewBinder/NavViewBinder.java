@@ -7,13 +7,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.zws.android.R;
-import com.zws.android.bean.home.Nav;
+import com.zws.android.bean.home.NavBean;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import me.drakeet.multitype.ItemViewBinder;
 
-public class NavViewBinder extends ItemViewBinder<Nav,NavViewBinder.NavHolder> {
+public class NavViewBinder extends ItemViewBinder<NavBean,NavViewBinder.NavHolder> {
     @NonNull
     @Override
     protected NavHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
@@ -22,7 +22,7 @@ public class NavViewBinder extends ItemViewBinder<Nav,NavViewBinder.NavHolder> {
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull NavHolder holder, @NonNull Nav item) {
+    protected void onBindViewHolder(@NonNull NavHolder holder, @NonNull NavBean item) {
         holder.iv_image.setImageResource(item.getImage());
         holder.tv_num.setText(item.getNum());
         holder.tv_name.setText(item.getName());

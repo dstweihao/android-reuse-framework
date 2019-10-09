@@ -5,8 +5,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.zws.android.R;
-import com.zws.android.bean.home.Nav;
-import com.zws.android.bean.home.NavList;
+import com.zws.android.bean.home.NavBean;
+import com.zws.android.bean.home.NavListBean;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import me.drakeet.multitype.ItemViewBinder;
 import me.drakeet.multitype.MultiTypeAdapter;
 
-public class NavListViewBinder extends ItemViewBinder<NavList, NavListViewBinder.NavListHolder> {
+public class NavListViewBinder extends ItemViewBinder<NavListBean, NavListViewBinder.NavListHolder> {
     private MultiTypeAdapter adapter;
 
     @NonNull
@@ -25,8 +25,8 @@ public class NavListViewBinder extends ItemViewBinder<NavList, NavListViewBinder
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull NavListHolder holder, @NonNull NavList item) {
-        adapter.setItems(item.getNavList());
+    protected void onBindViewHolder(@NonNull NavListHolder holder, @NonNull NavListBean item) {
+        adapter.setItems(item.getNavBeanList());
         adapter.notifyDataSetChanged();
         holder.recyclerView.setAdapter(adapter);
     }
@@ -40,7 +40,7 @@ public class NavListViewBinder extends ItemViewBinder<NavList, NavListViewBinder
             GridLayoutManager manager = new GridLayoutManager(itemView.getContext(), 4);
             recyclerView.setLayoutManager(manager);
             adapter = new MultiTypeAdapter();
-            adapter.register(Nav.class, new NavViewBinder());
+            adapter.register(NavBean.class, new NavViewBinder());
 
         }
     }

@@ -6,15 +6,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.zws.android.R;
-import com.zws.android.bean.home.DevStatus;
-
-import org.w3c.dom.Text;
+import com.zws.android.bean.home.DevStatusBean;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import me.drakeet.multitype.ItemViewBinder;
 
-public class DevStatusViewBinder extends ItemViewBinder<DevStatus, DevStatusViewBinder.DevStatusHolder> {
+public class DevStatusViewBinder extends ItemViewBinder<DevStatusBean, DevStatusViewBinder.DevStatusHolder> {
     @NonNull
     @Override
     protected DevStatusHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
@@ -23,7 +21,7 @@ public class DevStatusViewBinder extends ItemViewBinder<DevStatus, DevStatusView
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull DevStatusHolder holder, @NonNull DevStatus item) {
+    protected void onBindViewHolder(@NonNull DevStatusHolder holder, @NonNull DevStatusBean item) {
         holder.tv_devtype.setText(item.getDevtype());
         holder.tv_total.setText(item.getTotal());
         holder.tv_online.setText(item.getOnLine());

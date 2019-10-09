@@ -1,13 +1,13 @@
 package com.zws.android.bean.home;
 
-public class DevStatus {
+public class DevStatusBean {
     private String devtype;
     private String total;
     private String onLine;
     private String offLine;
     private String error;
 
-    public DevStatus(String devtype, String total, String onLine, String offLine, String error) {
+    public DevStatusBean(String devtype, String total, String onLine, String offLine, String error) {
         this.devtype = devtype;
         this.total = total;
         this.onLine = onLine;

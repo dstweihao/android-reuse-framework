@@ -1,13 +1,13 @@
 package com.zws.android.bean.home;
 
-public class Nav {
+public class NavBean {
 
 
     private int image;
     private String num;
     private String name;
 
-    public Nav(int image, String num, String text) {
+    public NavBean(int image, String num, String text) {
         this.image = image;
         this.num = num;
         this.name = text;

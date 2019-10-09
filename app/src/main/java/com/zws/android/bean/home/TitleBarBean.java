@@ -1,10 +1,10 @@
 package com.zws.android.bean.home;
 
-public class TitleBar {
+public class TitleBarBean {
     private String titleBarName;
 
 
-    public TitleBar(String titleBarName) {
+    public TitleBarBean(String titleBarName) {
         this.titleBarName = titleBarName;
     }
 

@@ -31,7 +31,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         setStatusBar(useThemestatusBarColor, useStatusBarColor);
         initView();
         initDate();
+        initListener();
     }
+
 
     public void setStatusBar(Boolean useThemestatusBarColor, Boolean useStatusBarColor) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {//5.0及以上
@@ -67,6 +69,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     //初始化数据
     protected abstract void initDate();
 
+    //监听事件
+    protected abstract void initListener();
 
     //封装activity跳转
     public void startActivity(Class clazz, boolean isFinish) {

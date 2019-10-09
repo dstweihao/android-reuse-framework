@@ -8,75 +8,63 @@
     android:fitsSystemWindows="true"
     tools:context=".ui.LoginActivity">
 
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/progressbar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!--<com.google.android.material.textfield.TextInputEditText-->
-    <!--android:id="@+id/ie_username"-->
-    <!--android:layout_width="280dp"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_marginTop="250dp"-->
-    <!--android:hint="请输入用户名"-->
-    <!--app:layout_constraintLeft_toLeftOf="parent"-->
-    <!--app:layout_constraintRight_toRightOf="parent"-->
-    <!--app:layout_constraintTop_toTopOf="parent" />-->
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_username"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/et_username"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
-        android:textColorHint="@color/white"
-        app:counterEnabled="false"
-        app:counterMaxLength="16"
-        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout"
+        android:drawableLeft="@mipmap/login_username"
+        android:drawablePadding="5dp"
+        android:hint="请输入用户名或手机号"
+        android:textColor="@color/white"
+        android:textColorHint="@color/LoginEditText"
+        android:textCursorDrawable="@drawable/edit_cursor_color"
+        android:theme="@style/LoginEditText"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/et_username"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:hint="请输入用户名"
-            android:textColor="@color/white"
-            android:textCursorDrawable="@drawable/edit_cursor_color" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_password"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:textColorHint="@color/white"
-        app:counterEnabled="false"
-        app:counterMaxLength="16"
-        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout"
+        android:layout_marginTop="10dp"
+
+        android:drawableLeft="@mipmap/login_password"
+        android:drawableRight="@mipmap/login_pwd_hide"
+        android:drawablePadding="5dp"
+        android:hint="请输入8~16位密码"
+        android:inputType="textPassword"
+        android:textColor="@color/white"
+        android:textColorHint="@color/LoginEditText"
+        android:textCursorDrawable="@drawable/edit_cursor_color"
+        android:theme="@style/LoginEditText"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/til_username">
-
-        <EditText
-            android:id="@+id/et_password"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:hint="请输入密码"
-            android:inputType="textPassword"
-            android:textColor="@color/white"
-            android:textCursorDrawable="@drawable/edit_cursor_color" />
-
-    </com.google.android.material.textfield.TextInputLayout>
+        app:layout_constraintTop_toBottomOf="@+id/et_username" />
 
     <Button
         android:id="@+id/bt_login"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/button_circle_shape_login"
         android:text="登录"
         android:textColor="@color/colorPrimary"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/til_password" />
+        app:layout_constraintTop_toBottomOf="@id/et_password" />
 
     <Button
         android:id="@+id/bt_register"

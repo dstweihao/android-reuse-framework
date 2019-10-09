@@ -1,17 +1,15 @@
 package com.zws.android.ui.fragment;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.gson.Gson;
 import com.zws.android.R;
-import com.zws.android.bean.home.DevStatus;
-import com.zws.android.bean.home.Nav;
-import com.zws.android.bean.home.NavList;
-import com.zws.android.bean.home.TitleBar;
+import com.zws.android.bean.home.DevStatusBean;
+import com.zws.android.bean.home.NavBean;
+import com.zws.android.bean.home.NavListBean;
+import com.zws.android.bean.home.TitleBarBean;
 import com.zws.android.view.ViewBinder.DevStatusViewBinder;
 import com.zws.android.view.ViewBinder.NavListViewBinder;
 import com.zws.android.view.ViewBinder.TitleBarViewBinder;
@@ -46,20 +44,20 @@ public class HomeFragment extends BaseFragment {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
 
-        adapter.register(NavList.class, new NavListViewBinder());
-        adapter.register(TitleBar.class, new TitleBarViewBinder());
-        adapter.register(DevStatus.class, new DevStatusViewBinder());
+        adapter.register(NavListBean.class, new NavListViewBinder());
+        adapter.register(TitleBarBean.class, new TitleBarViewBinder());
+        adapter.register(DevStatusBean.class, new DevStatusViewBinder());
 
-        List<Nav> navList = new ArrayList<>();
-        navList.add(new Nav(R.mipmap.ic_launcher_round, "55", "项目"));
-        navList.add(new Nav(R.mipmap.ic_launcher_round, "65", "设备类型"));
-        navList.add(new Nav(R.mipmap.ic_launcher_round, "895", "设备"));
-        navList.add(new Nav(R.mipmap.ic_launcher_round, "43", "触发器"));
+        List<NavBean> navBeanList = new ArrayList<>();
+        navBeanList.add(new NavBean(R.mipmap.ic_launcher_round, "55", "项目"));
+        navBeanList.add(new NavBean(R.mipmap.ic_launcher_round, "65", "设备类型"));
+        navBeanList.add(new NavBean(R.mipmap.ic_launcher_round, "895", "设备"));
+        navBeanList.add(new NavBean(R.mipmap.ic_launcher_round, "43", "触发器"));
 
-        items.add(new NavList(navList));
-        items.add(new TitleBar("设备统计"));
+        items.add(new NavListBean(navBeanList));
+        items.add(new TitleBarBean("设备统计"));
         for (int i = 0; i < 20; i++) {
-            items.add(new DevStatus("CANDTU-900" + i, "101", "22", "323", "52"));
+            items.add(new DevStatusBean("CANDTU-900" + i, "101", "22", "323", "52"));
         }
 
         adapter.setItems(items);

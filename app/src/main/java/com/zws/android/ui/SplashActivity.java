@@ -1,12 +1,10 @@
 package com.zws.android.ui;
-
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-
 import com.zws.android.R;
 import com.zws.android.ui.activity.BaseActivity;
-import com.zws.android.ui.activity.MainActivity;
+import com.zws.android.ui.activity.LoginActivity;
 
 import butterknife.BindView;
 
@@ -50,6 +48,11 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     protected void initDate() {
+    }
+
+    @Override
+    protected void initListener() {
+
     }
 
 }

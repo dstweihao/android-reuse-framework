@@ -3,6 +3,7 @@
     <color name="colorPrimary">#4fa8ff</color>
     <color name="colorPrimaryDark">#4fa8ff</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="LoginEditText">#a1d4f7</color>
     <!--custom-->
     <color name="white">#ffffff</color> <!-- 白色 -->
     <color name="ivory">#fffff0</color> <!-- 象牙色 -->
