@@ -1,4 +1,4 @@
-package com.zws.android.view.ViewBinder;
+package com.zws.android.view.ViewBinder.home;
 
 import android.view.LayoutInflater;
 import android.view.View;

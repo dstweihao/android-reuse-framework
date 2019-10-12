@@ -1,6 +1,8 @@
 package com.zws.android.ui.activity;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -58,6 +60,7 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     protected void initDate() {
+
         DaggerLoginActivityComponent.builder().loginActivityModule(new LoginActivityModule(this)).build().in(this);
 
     }
@@ -85,7 +88,6 @@ public class LoginActivity extends BaseActivity {
         bt_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 progressBar.show();
                 Map<String, String> map = new HashMap<>();
                 map.put("username", et_username.getText().toString().trim());
@@ -111,6 +113,10 @@ public class LoginActivity extends BaseActivity {
 
     public void onNext(LoginBean loginBean) {
         progressBar.hide();
+        SharedPreferences sp = this.getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+        SharedPreferences.Editor edit = sp.edit();
+        edit.putString("data", new Gson().toJson(loginBean));
+        edit.apply();
         Log.d("LoginBeanTrue", new Gson().toJson(loginBean));
         startActivity(MainActivity.class, false);
     }

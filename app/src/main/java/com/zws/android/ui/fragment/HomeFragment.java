@@ -10,9 +10,9 @@ import com.zws.android.bean.home.DevStatusBean;
 import com.zws.android.bean.home.NavBean;
 import com.zws.android.bean.home.NavListBean;
 import com.zws.android.bean.home.TitleBarBean;
-import com.zws.android.view.ViewBinder.DevStatusViewBinder;
-import com.zws.android.view.ViewBinder.NavListViewBinder;
-import com.zws.android.view.ViewBinder.TitleBarViewBinder;
+import com.zws.android.view.ViewBinder.home.DevStatusViewBinder;
+import com.zws.android.view.ViewBinder.home.NavListViewBinder;
+import com.zws.android.view.ViewBinder.home.TitleBarViewBinder;
 
 import java.util.ArrayList;
 import java.util.List;

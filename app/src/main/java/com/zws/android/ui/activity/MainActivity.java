@@ -1,4 +1,5 @@
 package com.zws.android.ui.activity;
+
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -8,6 +9,7 @@ import com.zws.android.ui.fragment.DataFragment;
 import com.zws.android.ui.fragment.DeviceFragment;
 import com.zws.android.ui.fragment.HomeFragment;
 import com.zws.android.ui.fragment.UserFragment;
+import com.zws.android.ui.fragment.UserInfoFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +45,7 @@ public class MainActivity extends BaseActivity {
         fragments.add(new DeviceFragment());
         fragments.add(new DataFragment());
         fragments.add(new UserFragment());
+        fragments.add(new UserInfoFragment());
         FragmentBottonNavAdapter fragmentBottonNavAdapter = new FragmentBottonNavAdapter(getSupportFragmentManager(), fragments);
         viewPager.setAdapter(fragmentBottonNavAdapter);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -71,6 +74,7 @@ public class MainActivity extends BaseActivity {
         });
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             private MenuItem menuItem;
+
             @Override
             public void onPageScrolled(int i, float v, int i1) {
 
@@ -78,14 +82,17 @@ public class MainActivity extends BaseActivity {
 
             @Override
             public void onPageSelected(int position) {
-                if (menuItem != null) {
-                    menuItem.setCheckable(false);
-                } else {
+//                如果是底部菜单fragment，支持底部实时切换。
+                if (position < 4) {
+                    if (menuItem != null) {
+                        menuItem.setCheckable(false);
+                    } else {
+                        menuItem = bottomNavigationView.getMenu().getItem(position);
+                        menuItem.setCheckable(true);
+                    }
                     menuItem = bottomNavigationView.getMenu().getItem(position);
                     menuItem.setCheckable(true);
                 }
-                menuItem = bottomNavigationView.getMenu().getItem(position);
-                menuItem.setCheckable(true);
             }
 
             @Override
